@@ -85,6 +85,7 @@ echo “drbd” >> /etc/modules
 
 Проверяем имеющиеся накопители `lsblk`
 
+```
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 sda      8:0    0   20G  0 disk
 ├─sda1   8:1    0   19G  0 part /
@@ -92,6 +93,7 @@ sda      8:0    0   20G  0 disk
 └─sda5   8:5    0  975M  0 part [SWAP]
 sdb      8:16   0    4G  0 disk 
 sr0     11:0    1 58,7M  0 rom
+```
 
 Создаем диск `primary` и логические разделы:
 
@@ -118,6 +120,8 @@ lvcreate -L1G -n mysql vg0
 
 Проверяем имеющиеся накопители `lsblk`
 
+```
+
 NAME          MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 sda             8:0    0   20G  0 disk
 ├─sda1          8:1    0   19G  0 part /
@@ -129,6 +133,7 @@ sdb             8:16   0    4G  0 disk
   └─vg0-mysql 254:1    0    1G  0 lvm
 sr0            11:0    1 58,7M  0 rom
 
+```
 
 Создаем  конфигурационные файлы следующего содержания:
 
@@ -248,6 +253,8 @@ mount /dev/drbd2 /mnt/mysql
 
 Проверяем `lsblk`
 
+```
+
 NAME          MAJ:MIN RM    SIZE RO TYPE MOUNTPOINT
 sda             8:0    0     20G  0 disk
 ├─sda1          8:1    0     19G  0 part /
@@ -261,6 +268,7 @@ sdb             8:16   0      4G  0 disk
     └─drbd2   147:2    0 1023,9M  0 disk /mnt/mysql
 sr0            11:0    1   58,7M  0 rom
 
+```
 
 **Проверяем репликацию**
 
