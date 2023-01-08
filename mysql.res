@@ -1,5 +1,5 @@
 resource mysql {
-protocol B;
+protocol C;
 
 disk {
         fencing resource-only;
@@ -15,16 +15,16 @@ syncer {
     }
 on nodetwo
     {
-        device /dev/drbd1;
+        device /dev/drbd2;
         disk /dev/vg0/mysql;
-        address 192.168.0.2:7795;
+        address 192.168.56.120:7795;
         meta-disk internal;
     }
 on nodeone
     {
-        device /dev/drbd1;
+        device /dev/drbd2;
         disk /dev/vg0/mysql;
-        address 192.168.0.1:7795;
+        address 192.168.56.110:7795;
         meta-disk internal;
     }
 }

@@ -14,16 +14,16 @@ rate 110M;
 }
 on nodetwo
 {
-device /dev/drbd2;
+device /dev/drbd1;
 disk /dev/vg0/www;
-address 192.168.0.2:7794;
+address 192.168.56.120:7794;
 meta-disk internal;
 }
 on nodeone
 {
-device /dev/drbd2;
+device /dev/drbd1;
 disk /dev/vg0/www;
-address 192.168.0.1:7794;
+address 192.168.56.110:7794;
 meta-disk internal;
 }
 }

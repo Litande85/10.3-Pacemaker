@@ -1,0 +1,71 @@
+<cib crm_feature_set="3.6.1" validate-with="pacemaker-3.5" epoch="26" num_updates="0" admin_epoch="0" cib-last-written="Sun Jan  8 22:51:22 2023" update-origin="nodeone" update-client="crmd" update-user="hacluster" have-quorum="1" dc-uuid="2">
+  <configuration>
+    <crm_config>
+      <cluster_property_set id="cib-bootstrap-options">
+        <nvpair id="cib-bootstrap-options-have-watchdog" name="have-watchdog" value="false"/>
+        <nvpair id="cib-bootstrap-options-dc-version" name="dc-version" value="2.0.5-ba59be7122"/>
+        <nvpair id="cib-bootstrap-options-cluster-infrastructure" name="cluster-infrastructure" value="corosync"/>
+        <nvpair id="cib-bootstrap-options-cluster-name" name="cluster-name" value="MakhotaCluster"/>
+        <nvpair id="cib-bootstrap-options-stonith-enabled" name="stonith-enabled" value="false"/>
+        <nvpair id="cib-bootstrap-options-last-lrm-refresh" name="last-lrm-refresh" value="1673207482"/>
+      </cluster_property_set>
+    </crm_config>
+    <nodes>
+      <node id="2" uname="nodetwo"/>
+      <node id="1" uname="nodeone"/>
+    </nodes>
+    <resources>
+      <clone id="WebDate-clone">
+        <primitive id="WebDate" class="ocf" type="drbd" provider="linbit">
+          <instance_attributes id="WebDate-instance_attributes">
+            <nvpair id="WebDate-instance_attributes-drbd_resource" name="drbd_resource" value="www"/>
+            <nvpair id="WebDate-instance_attributes-drbdconf" name="drbdconf" value="/etc/drbd.d/www.res"/>
+          </instance_attributes>
+          <operations>
+            <op name="demote" timeout="90" interval="0s" id="WebDate-demote-interval-0s"/>
+            <op name="monitor" interval="60s" id="WebDate-monitor-interval-60s"/>
+            <op name="notify" timeout="90" interval="0s" id="WebDate-notify-interval-0s"/>
+            <op name="promote" timeout="90" interval="0s" id="WebDate-promote-interval-0s"/>
+            <op name="reload" timeout="30" interval="0s" id="WebDate-reload-interval-0s"/>
+            <op name="start" timeout="240" interval="0s" id="WebDate-start-interval-0s"/>
+            <op name="stop" timeout="100" interval="0s" id="WebDate-stop-interval-0s"/>
+          </operations>
+        </primitive>
+        <meta_attributes id="WebDate-clone-meta_attributes">
+          <nvpair id="WebDate-clone-meta_attributes-clone-max" name="clone-max" value="2"/>
+          <nvpair id="WebDate-clone-meta_attributes-clone-node-max" name="clone-node-max" value="1"/>
+          <nvpair id="WebDate-clone-meta_attributes-notify" name="notify" value="true"/>
+          <nvpair id="WebDate-clone-meta_attributes-promotable" name="promotable" value="true"/>
+          <nvpair id="WebDate-clone-meta_attributes-promoted-max" name="promoted-max" value="1"/>
+          <nvpair id="WebDate-clone-meta_attributes-promoted-node-max" name="promoted-node-max" value="1"/>
+        </meta_attributes>
+      </clone>
+      <clone id="MysqlDate-clone">
+        <primitive id="MysqlDate" class="ocf" type="drbd" provider="linbit">
+          <instance_attributes id="MysqlDate-instance_attributes">
+            <nvpair id="MysqlDate-instance_attributes-drbd_resource" name="drbd_resource" value="mysql"/>
+            <nvpair id="MysqlDate-instance_attributes-drbdconf" name="drbdconf" value="/etc/drbd.d/mysql.res"/>
+          </instance_attributes>
+          <operations>
+            <op name="demote" timeout="90" interval="0s" id="MysqlDate-demote-interval-0s"/>
+            <op name="monitor" interval="60s" id="MysqlDate-monitor-interval-60s"/>
+            <op name="notify" timeout="90" interval="0s" id="MysqlDate-notify-interval-0s"/>
+            <op name="promote" timeout="90" interval="0s" id="MysqlDate-promote-interval-0s"/>
+            <op name="reload" timeout="30" interval="0s" id="MysqlDate-reload-interval-0s"/>
+            <op name="start" timeout="240" interval="0s" id="MysqlDate-start-interval-0s"/>
+            <op name="stop" timeout="100" interval="0s" id="MysqlDate-stop-interval-0s"/>
+          </operations>
+        </primitive>
+        <meta_attributes id="MysqlDate-clone-meta_attributes">
+          <nvpair id="MysqlDate-clone-meta_attributes-clone-max" name="clone-max" value="2"/>
+          <nvpair id="MysqlDate-clone-meta_attributes-clone-node-max" name="clone-node-max" value="1"/>
+          <nvpair id="MysqlDate-clone-meta_attributes-notify" name="notify" value="true"/>
+          <nvpair id="MysqlDate-clone-meta_attributes-promotable" name="promotable" value="true"/>
+          <nvpair id="MysqlDate-clone-meta_attributes-promoted-max" name="promoted-max" value="1"/>
+          <nvpair id="MysqlDate-clone-meta_attributes-promoted-node-max" name="promoted-node-max" value="1"/>
+        </meta_attributes>
+      </clone>
+    </resources>
+    <constraints/>
+  </configuration>
+</cib>
