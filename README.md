@@ -99,8 +99,6 @@ Corosync — программный продукт, позволяющий ре�
 
 ![pcsdstatus2](img/pcsdstatus2.png)
 
-![pcsdstatus](img/pcsdstatus.png)
-
 ![corosyncstatus](img/corosyncstatus.png)
 
 ![corosyncstatus2](img/corosyncstatus2.png)
@@ -290,3 +288,6 @@ on nodeone
 
 
 ![wwwstatus](img/wwwstatus.png)
+
+
+![pcsstatus](img/pcsstatus.png)
