@@ -180,8 +180,13 @@ logging {
 }
 
 ```
+Бэкап конфигурации pacemaker при помощи команды `pcs config backup confbackup2`
+
+Разархивированный
 
 [confbackup2](backup2)
+
+Заархивированный
 
 [confbackup2.tar.bz2](backup2/confbackup2.tar.bz2)
 
